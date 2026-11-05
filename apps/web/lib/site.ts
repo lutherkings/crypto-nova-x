@@ -4,11 +4,9 @@ export const bp = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 export const company = {
   legalName: "Crypto Nova X, Inc.",
   registration: "2025-7842395",
-  regulator: "Corporate and authoritative.",
-  address: "8 The Green, Suite 12000
-Dover, Delaware 19901
-United States",
-  email: "info@cryptonovax@gmail.com",
+  regulator: "",
+  address: "8 The Green, Suite 12000, Dover, Delaware 19901, United States",
+  email: "info.cryptonovax@gmail.com",
 };
 
 export const nav = [
