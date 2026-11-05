@@ -2,11 +2,13 @@ export const bp = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 // PLACEHOLDERS: replace with verified information. Never invent licences or addresses.
 export const company = {
-  legalName: "[COMPANY LEGAL NAME - TO BE SUPPLIED]",
-  registration: "[REGISTRATION NUMBER - TO BE SUPPLIED]",
-  regulator: "[REGULATORY STATUS - TO BE SUPPLIED AND VERIFIED]",
-  address: "[REGISTERED ADDRESS - TO BE SUPPLIED]",
-  email: "[SUPPORT EMAIL - TO BE SUPPLIED]",
+  legalName: "Crypto Nova X, Inc.",
+  registration: "2025-7842395",
+  regulator: "Corporate and authoritative.",
+  address: "8 The Green, Suite 12000
+Dover, Delaware 19901
+United States",
+  email: "info@cryptonovax@gmail.com",
 };
 
 export const nav = [
