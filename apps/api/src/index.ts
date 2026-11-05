@@ -40,8 +40,16 @@ async function main() {
   await initDb();
   await app.register(helmet);
   await app.register(rateLimit, { max: 100, timeWindow: "1 minute" });
+  const clean = (s: string) => s.trim().replace(/^["']|["']$/g, "").replace(/\/+$/, "").toLowerCase();
+  const allowedOrigins = (process.env.ALLOWED_ORIGIN ?? "").split(",").map(clean).filter(Boolean);
+  app.log.info({ allowedOrigins }, "CORS allowed origins");
   await app.register(cors, {
-    origin: (process.env.ALLOWED_ORIGIN ?? "").split(",").map((s) => s.trim()).filter(Boolean),
+    origin: (origin, cb) => {
+      if (!origin) return cb(null, true);
+      const ok = allowedOrigins.includes(clean(origin));
+      if (!ok) app.log.warn({ origin, allowedOrigins }, "CORS blocked this origin");
+      cb(null, ok);
+    },
     methods: ["GET", "POST", "PATCH"],
   });
 
